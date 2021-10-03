@@ -1,68 +1,78 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  if (!license) {
-    return "";
-  }
-
-  if (license === "mit") {
-    return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
-  }
-  if (license === "lgpl-3.0") {
-    return "[![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)";
-  }
-  if (license === "mpl-2.0") {
-    return "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)";
-  }
-  if (license === "agpl-3.0") {
-    return "[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)";
-  }
-  if (license === "unlicense") {
-    return "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)";
-  }
-  if (license === "apache-2.0") {
-    return "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
-  }
-  if (license === "gpl-3.0") {
-    return "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
-  }
-  if (license === "gpl-2.0") {
-    return "[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)";
-  }
-  if (license === "epl-1.0") {
-    return "[![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)](https://opensource.org/licenses/EPL-1.0)";
-  }
-  if (license === "cc0-1.0") {
-    return "[![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)";
-  }
-  if (license === "bsd-3-clause") {
-    return "[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)";
-  }
-  if (license === "bsd-2-clause") {
-    return "[![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)";
-  }
-  if (license === "wtfpl") {
-    return "[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)";
-  }
-  if (license === "artistic-2.0") {
-    return "[![License: Artistic-2.0](https://img.shields.io/badge/License-Artistic%202.0-0298c3.svg)](https://opensource.org/licenses/Artistic-2.0)";
-  }
-  if (license === "zlib") {
-    return "[![License: Zlib](https://img.shields.io/badge/License-Zlib-lightgrey.svg)](https://opensource.org/licenses/Zlib)";
+  if (license !== "no license") {
+    return `
+  ![badge](https://img.shields.io/badge/license-${license}-blue)
+    `;
+  } else {
+    return " ";
   }
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  if (license !== "no license") {
+    return `
+    [${license}](https://choosealicense.com/licenses/${license})
+      `;
+  } else {
+    return " ";
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license !== "no license") {
+    return `
+    ## [License](#table-of-contents)
+    The application is covered under the following license:
+    ${renderLicenseLink(license)}
+      `;
+  } else {
+    return " ";
+  }
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
+
+  ${renderLicenseBadge(data.license)}
+  ## Table-of-Contents
+  * [Description](#description)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  ${renderLicenseTOC(data.license)}
+  * [Contributing](#contributing)
+  * [Tests](#tests)
+  * [Questions](#questions)
+  
+  ## [Description](#table-of-contents)
+  ${data.what}
+  ${data.why}
+  ${data.how}
+  ## [Installation](#table-of-contents)
+  ${data.installation}
+  ## [Usage](#table-of-contents)
+  ${data.usage}
+  
+  For more information on how to add screenshots for examples, visit the following website:
+  
+  [Mark Down Tutorial](https://agea.github.io/tutorial.md/)
+  
+  ${renderLicenseSection(data.license)}
+  ## [Contributing](#table-of-contents)
+  
+  ${renderContributingSection(data.confirmContributers, data.contribute)}
+  ## [Tests](#table-of-contents)
+  ${data.test}
+  ## [Questions](#table-of-contents)
+  Please contact me using the following links:
+  [GitHub](https://github.com/${data.githubUsername})
+  [Email: ${data.email}](mailto:${data.email})
 
 `;
 }
