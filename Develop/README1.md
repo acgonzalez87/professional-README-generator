@@ -1,7 +1,9 @@
 # Professional-README-Generator
 
   
-  (https://img.shields.io/badge/license-Mozilla Public License 2.0-blue)
+  [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
+
+
     
   ## Table-of-Contents
   * [Description](#description)
@@ -42,6 +44,6 @@
   Please refer to the instructions section.
   ## [Questions](#table-of-contents)
   Please contact me using the following links:
-  [GitHub](https://github.com/acgonzalez87)
+  [GitHub](https://github.com/acgonzalez87) 
   [Email: acgonzo87@gmail.com](mailto:acgonzo87@gmail.com)
 
