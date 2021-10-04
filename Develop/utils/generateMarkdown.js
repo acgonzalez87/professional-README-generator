@@ -36,6 +36,28 @@ function renderLicenseSection(license) {
   }
 }
 
+function renderLicenseTOC(license) {
+  if (license !== "no license") {
+    return `
+  * [License](#license)
+    `;
+  } else {
+    return " ";
+  }
+}
+
+function renderContributingSection(confirmContributers, data) {
+  if (!confirmContributers) {
+    return `
+  Thank you for your interest in helping out; however, I will not be accepting contributions from third parties.
+    `;
+  } else {
+    return `
+  ${data}
+    `;
+  }
+}
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
@@ -51,13 +73,12 @@ function generateMarkdown(data) {
   * [Questions](#questions)
   
   ## [Description](#table-of-contents)
-  ${data.what}
-  ${data.why}
-  ${data.how}
+  ${data.description}
+ 
   ## [Installation](#table-of-contents)
   ${data.installation}
   ## [Usage](#table-of-contents)
-  ${data.usage}
+  ${data.instructions}
   
   For more information on how to add screenshots for examples, visit the following website:
   
@@ -68,7 +89,7 @@ function generateMarkdown(data) {
   
   ${renderContributingSection(data.confirmContributers, data.contribute)}
   ## [Tests](#table-of-contents)
-  ${data.test}
+  ${data.testing}
   ## [Questions](#table-of-contents)
   Please contact me using the following links:
   [GitHub](https://github.com/${data.githubUsername})
