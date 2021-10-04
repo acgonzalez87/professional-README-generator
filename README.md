@@ -25,6 +25,10 @@
   ## [Usage](#table-of-contents)
   Run the command 'node index' in the terminal and the app will start asking you questions for the README. All responses will be converted to the markdown format and the fs.write package will create the README.md file upon completion. Here is a video showing the process from beginning to end.
   
+  <a href="http://www.youtube.com/watch?feature=player_embedded&v=jt6U8BBAijI
+" target="_blank"><img src="http://img.youtube.com/vi/jt6U8BBAijI/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+  
   For more information on how to add screenshots for examples, visit the following website:
   
   [Mark Down Tutorial](https://agea.github.io/tutorial.md/)
